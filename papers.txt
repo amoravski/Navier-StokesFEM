@@ -1,0 +1,102 @@
+https://digitalcommons.pvamu.edu/cgi/viewcontent.cgi?article=1647&context=aam
+    - Rectangular, 8 pts for velocity (quadratic interp), 4 pts for pressure (bilinear interp)
+    - Direct formulation, solved using Picard iteration
+
+https://web.archive.org/web/20170808232501id_/http://www.numerik.uni-hd.de/Oberwolfach-Seminar/CFD-Course.pdf
+    - types of boundary conditions discussed
+    - "Many stable pairs of finite element spaces {Hh, Lh} have been proposed in the literature 
+    - (see, e.g., Girault/Raviart [29], Hughes et al. [49] and [77])."
+    - "We note that, from the point of view of accuracy, in our
+    - context quadrilateral (hexahedral) elements are to be preferred over 
+      triangular (tetrahedral) elements because of their superior approximation properties"
+    - "Nonconforming “rotated” d-linear ˜Q1/P0 Stokes element"
+    - good with inf/sup
+        - "It possesses a “divergence-free” nodal-basis, which allows the elimina-
+        tion of the pressure from the problem resulting in a positive definite algebraic
+        system for the velocity unknowns alone. The reduced algebraic system can be
+        solved by specially adapted multigrid methods; see Turek"
+    - "conforming d-linear Q1/Q1 Stokes element with pressure stabilization"
+    - "In order to get a stable discretization, it was proposed by Hughes et al. [49],
+       to add certain least squares terms in the continuity equation"
+
+FINITE ELEMENT METHODS FOR NAVIER-STOKES EQUATIONS
+https://sci-hub.se/https://doi.org/10.1146/annurev.fl.24.010192.001123
+    - operator splitting
+    - second part has compressible flow
+    - "The boundary
+       condition ( 1 .4) is of Dirichlet type; more complicated boundary conditions
+       are described in, e.g. Glowinski (1984), Bristeau et al (1985, 1987), and
+       Pironneau ( 1989)"
+    - (about precondtioned CG) "The key idea (which is due to J. Cahouet) is to linearly
+      combine two residuals, one active for IX/V» 1 (large Reynolds numbers),
+      while the other is well suited to IX/V « 1"
+    - "It is a well accepted fact that the main difficulty related to the space
+       approximation of the Navier-Stokes equations, in the pressure-velocity
+       formulation, is the treatment of the incompressibility condition V' u = O."
+    - "Indeed a finite element method for thc Stokes problem
+       introduced in Bercovier & Pironneau (1979) was (implicitly) based on this
+       idea. In the above reference one proves the convergence of a finite element
+       approximation of the Stokes problem (4.1)-(4.3) (with 0: = 0 and r 0 = r),
+       where one uses a continuous piecewise linear pressure on a triangulation
+       :Yh/2' twice finer than :T,,; this finite element approximation will be described
+       in the following Section 4.3.2"
+    - generate initial mesh, then split each triangle for the velocity:
+        - join the midpoints, or
+        - join the vertices with the center
+    - pressure multigrid
+
+Implementation of Finite Element Methods for Navier-Stokes Equations
+    - u h: "P2 + bubble" Triangle (or Modified P2); Ph: Discontinuous P1
+        - bubble is third degree poly (composed of barycentric coords) with a single tuning parameter
+        - h^2 velocity and pressure accuracy
+        - the nodes for the pressure can be chosen anywhere on the triangle
+    - u h : Q2 Quadrangle 57;Ph: Ql Discontinuous
+        - same trick as above
+    - 4xP1 / P1 also mentioned
+
+CONFORMING AND DIVERGENCE-FREE STOKES ELEMENTS ON GENERAL TRIANGULAR MESHES
+https://www.ams.org/journals/mcom/2014-83-285/S0025-5718-2013-02753-6/S0025-5718-2013-02753-6.pdf
+    - no pictures :(
+
+Divergence-Free Mixed Finite Elements for the Incompressible Navier-Stokes Equation
+https://d-nb.info/991225457/34
+    - "The scheme is based on the Scott-Vogelius mixed finite element and on
+       symmetric stabilization operators for dominant convection, proposed in the
+       last recent years"
+    - multigrid
+    - "a new discretization scheme for the incompressible Navier-Stokes equation at low and
+       moderate Reynolds numbers is proposed and analyzed in this dissertation.
+       The scheme is a LBB-stable conforming mixed finite element method, which
+       is based on the Scott-Vogelius element pair [102], which uses continuous La-
+       grangian elements for the discrete velocities and discontinuous Lagrangian
+       elements for the pressure"
+    - "Here, the approximation order of the velocities is
+       one order higher than the approximation order of the pressure. Due to this
+       special construction the velocity divergence operator is a mapping into the
+       discrete pressure space. This enforces that discrete Navier-Stokes solutions
+       are divergence-free pointwise [25]"
+    - Scott-Vogelius = P_k / P_{k-1}, k >= 1
+    - "The Pk-P−k+1 element for k ≥ 4 is LBB stable in 2D on quite general
+       meshes that do not possess “singular vertices” [118, 117, 101, 102].
+       We will explain this term below. But for k ≥ 4 and not smaller the
+       Scott-Vogelius element is reduced stable on any mesh [123]"
+
+
+The Scott-Vogelius finite elements revisited
+https://arxiv.org/abs/1705.00020
+     - "We prove that the Scott-Vogelius finite elements are inf-sup stable on shape-regular meshes for piecewise quartic velocity fields and higher (k≥4)."
+     - "One key aspect in the new proof is to use the stability of the P 2 −P 0
+        (or the Bernardi-Raugel [2]) finite element spaces"
+
+Analysis of Some Finite Elements for the Stokes Problem (Bernardi-Raugel)
+https://sci-hub.se/https://doi.org/10.2307/2007793
+
+The pressure-wired Stokes element: a mesh-robust version of the Scott-Vogelius element
+https://arxiv.org/abs/2212.09673
+
+==============================================================
+================== Maybe interesting things ==================
+==============================================================
+
+Moving Mesh Finite Element Methods for the Incompressible Navier--Stokes Equations
+https://epubs.siam.org/doi/abs/10.1137/030600643
