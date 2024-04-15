@@ -94,6 +94,49 @@ https://sci-hub.se/https://doi.org/10.2307/2007793
 The pressure-wired Stokes element: a mesh-robust version of the Scott-Vogelius element
 https://arxiv.org/abs/2212.09673
 
+A new finite element formulation for computational fluid dynamics: V. Circumventing the babuška-brezzi condition: a stable Petrov-Galerkin formulation of the stokes problem accommodating equal-order interpolations
+https://sci-hub.se/https://doi.org/10.1016/0045-7825(86)90025-3
+    - equal order of pressure and velocity
+    - discontinuous
+    - "REMARK 2.1. The equations of Stokes flow are form-identical to the equations of classical
+      isotropic infinitesimal elasticity theory. Only the physical interpretation changes. In elasticity,
+      u is the displacement vector and ,U is the shear modulus."
+    - pressure stabilization. If stab terms are zero, the formulation is the same as the standard Galerkin one
+    - "REMARK 3.1. (1) The purpose of the n-term is to improve upon the stability of the Galerkin
+      formulation without compromising consistency. That consistency has been maintained is
+      suggested by the fact that the u-modified method is a residual method, that is, if uh and ph are
+      replaced by their exact counterparts, then (15) is satisfied as can be immediately seen from
+      (22)"
+
+Simple Nonconforming Quadrilateral Stokes Element
+https://sci-hub.se/https://doi.org/10.1002/num.1690080202
+    - "While the convergence properties of the triangular nonconforming ele-
+      ments are well studied in the literature (see, e.g., Ref. 5)"
+    - "Unfortunately, on general nonuniform meshes the usual optimal order error
+      estimates do not hold for if’b).This is due to the fact ;hat the spaces Hf/@are not “iso-
+      parametric,” i.e., the multilinear tiansformations i,!JT: T -+ T are of another polynomial
+      type than the shape functions on T."
+
+Stabilized finite element schemes for incompressible flow using Scott–Vogelius elements
+https://sci-hub.se/https://doi.org/10.1016/j.apnum.2007.11.001
+    - "In this paper we
+      propose to use the lowest order Scott–Vogelius element [26,22,28] for the computation of incompressible flows. In
+      two space dimensions this element corresponds to piecewise quadratic continuous interpolation for the velocities and
+      piecewise affine discontinuous interpolation for the pressure"
+
+QUADRATIC VELOCITY/LINEAR PRESSURE STOKES ELEMENTS
+https://www-users.cse.umn.edu/~arnold//papers/imacs92.pdf
+    - discussion of mesh macroelements
+    - ends up with a quad with 4 triangles inside
+
+ON THE P1 POWELL-SABIN DIVERGENCE-FREE FINITE ELEMENT FOR THE STOKES EQUATIONS
+https://sci-hub.se/https://www.jstor.org/stable/43693550
+    - P1/P0 with split triangles
+    - P2/P0
+
+(Scott Vogelius) Conforming finite element methods for incompressible and nearly incompressible ...
+https://apps.dtic.mil/sti/tr/pdf/ADA141117.pdf
+
 ==============================================================
 ================== Maybe interesting things ==================
 ==============================================================
