@@ -137,6 +137,15 @@ https://sci-hub.se/https://www.jstor.org/stable/43693550
 (Scott Vogelius) Conforming finite element methods for incompressible and nearly incompressible ...
 https://apps.dtic.mil/sti/tr/pdf/ADA141117.pdf
 
+Larson, Bengzon: The finite element method (ISBN = 3642332862)
+    page 301
+    - Taylor-Hood (P2/P1)
+    - MINI element (P1 + bubble / P1)
+        - "However, it is also known for giving a poor approximation of the pressure"
+    - Crouzeix-Raviart (P1/P0 nonconforming)
+        - "This element has the desirable property of being able to yield a finite
+           element solution that is exactly divergence free on each element"
+
 ==============================================================
 ================== Maybe interesting things ==================
 ==============================================================
