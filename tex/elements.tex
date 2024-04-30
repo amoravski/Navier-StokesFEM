@@ -26,6 +26,11 @@
 \section{Триъгълни}
 
 \subsection{4P1/P1}
+\includegraphics[width=140mm]{img/4p1p1.png}
+
+Триъгълника се разцепва на четири, за да се елиминират осцилации в налягането ("spurious pressure modes").
+Има и алтернативно разцепване - свързване на върховете с медицентъра.
+
 \begin{verbatim}
 https://sci-hub.se/https://doi.org/10.1146/annurev.fl.24.010192.001123
 \end{verbatim}
@@ -44,6 +49,7 @@ Implementation of Finite Element Methods for Navier-Stokes Equations
 \end{verbatim}
 
 \subsection{P1 + мехурче / P1 (MINI)}
+\includegraphics[width=140mm]{img/mini.png}
 \begin{verbatim}
 Larson, Bengzon: The finite element method (ISBN 3642332862) [стр. 301] 
 \end{verbatim}
@@ -54,7 +60,6 @@ Larson, Bengzon: The finite element method (ISBN 3642332862) [стр. 301]
 
 
 \subsection{P2/P1 (Taylor-Hood)}
-\subsection{P1 + мехурче / P1 (MINI)}
 \begin{verbatim}
 Larson, Bengzon: The finite element method (ISBN 3642332862) [стр. 301] 
 \end{verbatim}
@@ -62,12 +67,15 @@ Larson, Bengzon: The finite element method (ISBN 3642332862) [стр. 301]
 Implementation of Finite Element Methods for Navier-Stokes Equations
 \end{verbatim}
 
-\begin{itemize}
-    \item MINI element (P1 + bubble / P1)
-    \item "However, it is also known for giving a poor approximation of the pressure"
-\end{itemize}
-
 \subsection{P2 + мехурче / P1*}
+\includegraphics[width=140mm]{img/p2_bubble_p1.png}
+
+Възлите за налягане могат да се разположат на произволно място.
+Нарисувани са в центровете на страните, за да се покаже че налягането може да е прекъснато.
+Добавката (мехурчето) е $q_7 xy(1-x-y)$, т.е. множител по произведението на линейните функции.
+Оценките за грешките ($O(h^2)$) се постигат в специални норми (има subscript) - TODO.
+В тях този елемент е оптимален.
+
 \begin{verbatim}
 Implementation of Finite Element Methods for Navier-Stokes Equations
 \end{verbatim}
@@ -79,6 +87,10 @@ Implementation of Finite Element Methods for Navier-Stokes Equations
 \end{itemize}
 
 \subsection{6P1/P0 (Powell-Sabin)}
+\includegraphics[width=140mm]{img/6p1p0.png}
+
+Има divergence-free базис.
+
 \begin{verbatim}
 https://sci-hub.se/https://www.jstor.org/stable/43693550
 \end{verbatim}
@@ -100,6 +112,10 @@ Larson, Bengzon: The finite element method (ISBN 3642332862) [стр. 301]
 \section{Правоъгълни}
 
 \subsection{Q1/Q1 със стабилизация на налягането}
+
+Стабилизацията на налягането е по метода на НМК (или поне много прилича).
+Избора на силата на стабилизация е нетривиален.
+
 \begin{verbatim}
 https://web.archive.org/web/20170808232501id_/http://www.numerik.uni-hd.de/Oberwolfach-Seminar/CFD-Course.pdf
 \end{verbatim}
@@ -119,6 +135,12 @@ https://digitalcommons.pvamu.edu/cgi/viewcontent.cgi?article=1647&context=aam
 \end{itemize}
 
 \subsection{Завъртян билинеен Q1/Q0}
+\includegraphics[width=140mm]{img/rotbl.png}
+
+Има тънък момент с прехвърлянето към стандартни координати при нерегулиряни мрежи.
+Трансформацията на координатите е от различен ред, което причинява проблеми.
+Има заообикаляне.
+
 \begin{verbatim}
 https://web.archive.org/web/20170808232501id_/http://www.numerik.uni-hd.de/Oberwolfach-Seminar/CFD-Course.pdf
 \end{verbatim}

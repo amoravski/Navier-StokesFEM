@@ -68,7 +68,7 @@ end
 function plotMini()
     p = plotRefTriangle()
     vpts = [0 0; 1 0; 0 1; 0.333 0.333]
-    ppts = [0.333 0.333]
+    ppts = [0 0; 1 0; 0 1]
 
     scatter!(p, vpts[:,1], vpts[:,2], label="", color = :green)
     scatter!(p, ppts[:,1], ppts[:,2], label="", marker=:xcross, markersize = 6, color = :red, markerstrokewidth=1.5)
