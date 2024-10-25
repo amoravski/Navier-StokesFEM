@@ -23,6 +23,30 @@
 \tableofcontents
 \pagebreak
 
+\section{Формулировки и норми}
+\subsection{Velocity-pressure}
+
+Разглеждаме уравнението на Stokes (защото добър solver за NS трябва да може да се справи и със Stokes):
+\[ \begin{cases}
+    \nu \Delta \pmb{u} = \pmb{f} - \nabla p \\
+    \nabla \cdot \pmb{u} = 0 \\
+    \pmb{u} = 0 \text{ върху } \Gamma
+\end{cases} \]
+
+Това води до следната вариационна задача: Да се намерят $\pmb{u}, p$, такива че:
+\[ \nu \int_\Omega \nabla \pmb{u} \cdot \nabla \pmb{v} dx - \int_\Omega p (\nabla \cdot \pmb{v}) dx = \int_\Omega \pmb{f} \cdot \pmb{v} dx \text{ за всяко } \pmb{v} \text{, такова че } \pmb{v} = 0 \text{ върху } \Gamma \]
+\[ \int_\Omega q (\nabla \cdot \pmb{u}) dx = 0, \hspace{5mm} \forall q (\Leftrightarrow \nabla \cdot \pmb{u} = 0) \]
+\[ \pmb{u}|_{\Gamma} = 0 \]
+
+С тази постановка се дефинират следните норми:
+\[ |u - u_h|_{1,h} = \sqrt{\sum_\tau \int_\tau |\nabla(u-u_h)|^2 dx } \]
+\[ |p - p_h|_0 = \int_\Omega (p-p_h)^2 dx \text{, при условието } \int_\Omega p dx = \int_\Omega p_h dx   \]
+
+Тук $\tau$ е елемент на мрежата. Условието за налагянето най-вероятно трябва, защото е дефинирано с точност до константа.
+Тези норми се използват за елементите с прекъснато налагяне.
+
+Source: Francois Thomaset, Implementation of Finite Element Methods for Navier-Stokes Equations, стр. 75-79
+
 \section{Триъгълни}
 
 \subsection{4P1/P1}
